@@ -3,28 +3,91 @@ import core.usecases.SubTextSearcher.SearchStrategies.SearchDigit;
 import core.usecases.SubTextSearcher.SearchStrategies.SearchText;
 
 import core.usecases.SubTextSearcher.SubTextSearcher;
+import core.usecases.entities.InputReader;
+import java.util.InputMismatchException;
+
 
 public class Main {
-    public static void main(String[] args)
-    {
-        String text = "This is a test № 5 for searching subtext";
-        String subText1 = "test";
-        String subText2 = "5";
-        String subText3 = "№";
+    public static void main(String[] args) {
+        String text = "This is a test № 5 for searching substring";
 
         SubTextSearcher searcher = new SubTextSearcher(new SearchText());
 
-        int index1 = searcher.search(text, subText1);
-        System.out.println("Subtext \"" + subText1 + "\" found at index: " + index1);
+        InputReader inputReader = new InputReader();
 
-        searcher.setPattern(new SearchDigit());
+        String subString;
+        int choice = 0;
 
-        int index2 = searcher.search(text, subText2);
-        System.out.println("Digit \"" + subText2 + "\" found at index: " + index2);
+        do {
+            System.out.println("Меню выбора действий:");
+            System.out.println("1. Выбрать стратегию поиска");
+            System.out.println("2. Выполнить поиск");
+            System.out.println("3. Вывести информацию о текущей стратегии");
+            System.out.println("0. Выход");
+            System.out.print("Введите номер действия: ");
 
-        searcher.setPattern(new SearchCharacters());
+            try {
+                choice = inputReader.readIntFromConsole();
 
-        int index3 = searcher.search(text, subText3);
-        System.out.println("Special character \"" + subText3 + "\" found at index: " + index3);
+                switch (choice) {
+                    case 1:
+                        System.out.println("Выберите стратегию поиска:");
+                        System.out.println("1. Поиск текста");
+                        System.out.println("2. Поиск цифры");
+                        System.out.println("3. Поиск специального символа");
+                        int strategyChoice = inputReader.readIntFromConsole();
+                        switch (strategyChoice) {
+                            case 1:
+                                searcher.setPattern(new SearchText());
+                                break;
+                            case 2:
+                                searcher.setPattern(new SearchDigit());
+                                break;
+                            case 3:
+                                searcher.setPattern(new SearchCharacters());
+                                break;
+                            default:
+                                System.out.println("Неверный выбор стратегии.");
+                        }
+                        break;
+                    case 2:
+                        System.out.print("Введите данные для поиска: ");
+                        subString = inputReader.readStringFromConsole();
+                        int index = searcher.search(text, subString);
+                        System.out.println("Результат поиска: " + index);
+                        break;
+                    case 3:
+                        System.out.println("Выберите информацию текущей стратегии:");
+                        System.out.println("1. Название ");
+                        System.out.println("2. Алгоритм");
+                        System.out.println("3. Время выполнения");
+                        int infoChoice = inputReader.readIntFromConsole();
+                        switch (infoChoice) {
+                            case 1:
+                                searcher.printName();
+                                break;
+                            case 2:
+                                searcher.printAlgorithm();
+                                break;
+                            case 3:
+                                searcher.printTimeOfWork();
+                                break;
+                            default:
+                                System.out.println("Неверный выбор информации.");
+                        }
+                        break;
+                    case 0:
+                        System.out.println("Выход из программы.");
+                        break;
+                    default:
+                        System.out.println("Неверный выбор. Попробуйте снова.");
+                }
+                System.out.println();
+
+            }
+            catch (InputMismatchException e) {
+                System.out.println("Ошибка: введено не число. Повторите попытку.");
+            }
+        } while (choice != 0);
     }
 }
