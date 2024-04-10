@@ -1,4 +1,4 @@
-package core.usecases.entities;
+package global.entities;
 
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;

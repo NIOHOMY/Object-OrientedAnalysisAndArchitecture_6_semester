@@ -1,9 +1,9 @@
-package core.usecases.SubTextSearcher.SearchStrategies;
+package lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SearchStrategies;
 
-import core.usecases.abstracttions.Info;
-import core.usecases.interfaces.SearchStrategy;
 
-public class SearchCharacters extends Info implements SearchStrategy {
+import lab1_StrategyAndTemplate.core.usecases.abstracttions.SearchStrategy;
+
+public class SearchCharacters extends SearchStrategy {
 
     private static final char[] specialCharacters = { '!','@','#','$','%',
             '^','&','*','(',')',
@@ -17,7 +17,7 @@ public class SearchCharacters extends Info implements SearchStrategy {
         long startTime = System.nanoTime();
         int index = performSearch(text, subString);
         long endTime = System.nanoTime();
-        this.elapsedTime = endTime - startTime;
+        this.elapsedTime = (endTime - startTime);
         return index;
     }
 

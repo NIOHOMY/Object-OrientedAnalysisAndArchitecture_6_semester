@@ -1,9 +1,9 @@
-package core.usecases.SubTextSearcher.SearchStrategies;
+package lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SearchStrategies;
 
-import core.usecases.abstracttions.Info;
-import core.usecases.interfaces.SearchStrategy;
 
-public class SearchDigit extends Info implements SearchStrategy {
+import lab1_StrategyAndTemplate.core.usecases.abstracttions.SearchStrategy;
+
+public class SearchDigit extends SearchStrategy {
     @Override
     public int search(String text, String subString) {
         long startTime = System.nanoTime();

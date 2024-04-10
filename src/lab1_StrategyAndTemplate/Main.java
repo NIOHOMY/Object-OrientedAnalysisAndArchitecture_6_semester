@@ -1,9 +1,11 @@
-import core.usecases.SubTextSearcher.SearchStrategies.SearchCharacters;
-import core.usecases.SubTextSearcher.SearchStrategies.SearchDigit;
-import core.usecases.SubTextSearcher.SearchStrategies.SearchText;
+package lab1_StrategyAndTemplate;
 
-import core.usecases.SubTextSearcher.SubTextSearcher;
-import core.usecases.entities.InputReader;
+import global.entities.InputReader;
+import lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SearchStrategies.SearchCharacters;
+import lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SearchStrategies.SearchDigit;
+import lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SearchStrategies.SearchText;
+import lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher.SubTextSearcher;
+
 import java.util.InputMismatchException;
 
 

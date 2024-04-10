@@ -1,7 +1,7 @@
-package core.usecases.SubTextSearcher;
+package lab1_StrategyAndTemplate.core.usecases.entities.SubTextSearcher;
 
-import core.usecases.abstracttions.Info;
-import core.usecases.interfaces.SearchStrategy;
+import lab1_StrategyAndTemplate.core.usecases.abstracttions.SearchStrategy;
+import lab1_StrategyAndTemplate.core.usecases.interfaces.Info;
 
 public class SubTextSearcher {
     private SearchStrategy searcher;
