@@ -21,6 +21,7 @@ public class BirdRockWaterTests {
         MockitoAnnotations.openMocks(this);
         Field field = BirdRockWater.class.getDeclaredField("randomNumberGenerator");
         field.setAccessible(true);
+
         field.set(game, random);
     }
 
