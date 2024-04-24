@@ -16,6 +16,9 @@ public class BirdRockWaterTests {
     @Mock
     private RandomNumberGenerator random;
     BirdRockWater game = new BirdRockWater();
+    /**
+     * Sets up the necessary mocks and fields before each test.
+     */
     @Before
     public void setUp() throws NoSuchFieldException, IllegalAccessException {
         MockitoAnnotations.openMocks(this);
@@ -25,6 +28,9 @@ public class BirdRockWaterTests {
         field.set(game, random);
     }
 
+    /**
+     * Tests the scenario...
+     */
     @Test
     public void testDrawRock() {
 
