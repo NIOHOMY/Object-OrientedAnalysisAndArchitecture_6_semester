@@ -36,8 +36,6 @@ public class RockScissorsPaperTests {
     public void testDrawScissors() {
 
         when(random.generateRandomNumber(0, 2)).thenReturn(1);
-
-
         String result = game.play("ножницы");
 
         assertEquals("Ничья!", result);
